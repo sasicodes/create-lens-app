@@ -1,3 +1,6 @@
+import Login from "./components/Login";
+import Profile from "./components/Profile";
+import Publication from "./components/Publication";
 import "./styles/App.css";
 
 function App() {
@@ -32,32 +35,11 @@ function App() {
       </div>
 
       <div className="grid">
-        <a
-          href="/feed"
-          className="card"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>User Feed</h2>
-        </a>
+        <Login />
 
-        <a
-          href="/profile"
-          className="card"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>Profile</h2>
-        </a>
+        <Profile />
 
-        <a
-          href="/publications"
-          className="card"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>Publication</h2>
-        </a>
+        <Publication />
       </div>
     </main>
   );
