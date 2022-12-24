@@ -44,7 +44,7 @@ const currentDir = process.cwd();
 // The first argument will be the project name.
 const projectName = path.join(currentDir, args._[0]);
 
-const templateName = args['--template'] || 'vite-ts';
+const templateName = args['--template'] || 'vite-js';
 
 if (!validTemplates.includes(templateName)) return console.log(`❗❗❗ Template not found: ${templateName}`)
 
