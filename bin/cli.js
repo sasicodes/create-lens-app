@@ -53,17 +53,14 @@ console.log("🌿 Creating Lens project...")
 const projectDir = path.resolve(currentDir, projectName);
 fs.mkdirSync(projectDir, { recursive: true });
 
+console.log("📦 Using default template `vite-ts`");
 const templateDir = path.resolve(__dirname, `../templates/${templateName}`);
-fs.cpSync(templateDir, projectDir, { recursive: true });
+fs.cpSync(templateDir, projectDir, { recursive: true, force: true });
 
 fs.renameSync(
     path.join(projectDir, '_gitignore'),
     path.join(projectDir, '.gitignore')
-);
-fs.renameSync(
-    path.join(projectDir, '_eslintrc.json'),
-    path.join(projectDir, '.eslintrc.json')
-);
+); 
 
 const projectPackageJson = require(path.join(projectDir, 'package.json'));
 
