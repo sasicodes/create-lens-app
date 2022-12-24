@@ -31,7 +31,13 @@ const Login = () => {
 
   return (
     <div onClick={() => onClickLogin()} className="card">
-      <h5>{!activeProfile?.handle && "Login"}</h5>
+      <h5>
+        {!activeProfile?.handle
+          ? isDisconnected
+            ? "Connect Wallet"
+            : "Login"
+          : null}
+      </h5>
       <p>{loading && "Loading..."}</p>
       <h6>{activeProfile?.id}</h6>
       <p>{activeProfile?.handle}</p>
