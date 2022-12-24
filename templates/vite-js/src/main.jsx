@@ -4,7 +4,7 @@ import App from "./App";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
 import { mainnet, polygon } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
-import { LensConfig, staging } from "@lens-protocol/react";
+import { staging } from "@lens-protocol/react";
 import { localStorage } from "@lens-protocol/react/web";
 import { bindings as wagmiBindings } from "@lens-protocol/wagmi";
 import { LensProvider } from "@lens-protocol/react";
