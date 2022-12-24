@@ -1,11 +1,11 @@
-# Create Lens Apps in one command ⚡
+# Create Lens Apps in one command ⚡ 🌿
 
 ## Usage
 
 ```bash
-$ npx create-lens-app my-app
+$ npx create-lens-app <project-name>
 
-$ npx create-lens-app my-app --template <template_name>
+$ npx create-lens-app <project-name> --template <template-name>
 ```
 
 
