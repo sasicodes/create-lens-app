@@ -1,14 +1,15 @@
 {
   "name": "create-lens-app",
   "version": "0.0.1",
-  "description": "create-lens-app",
+  "description": "Create Lens protocol apps in one command",
   "bin": {
     "create-lens-app": "bin/cli.js"
   },
   "keywords": [
-    "create-lens-app",
+    "react",
     "template",
-    "lens-sdk"
+    "lens-hooks",
+    "lens-protocol"
   ],
   "author": "Sasi <me@sasi.codes>",
   "license": "MIT",
