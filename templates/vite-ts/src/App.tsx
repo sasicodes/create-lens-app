@@ -6,7 +6,7 @@ function App() {
       <div className="description">
         <p>
           Get started by editing&nbsp;
-          <code className="code">pages/index.tsx</code>
+          <code className="code">src/App.tsx</code>
         </p>
         <div>
           <a
@@ -24,7 +24,7 @@ function App() {
         <img
           className="logo"
           src="/illustration.png"
-          alt="Next.js Logo"
+          alt="Lens"
           width={600}
           height={450}
           draggable={false}

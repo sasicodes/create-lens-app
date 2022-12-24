@@ -8,7 +8,7 @@ const path = require('path');
 const arg = require('arg');
 const chalk = require('chalk');
 
-const validTemplates = ['next-ts']
+const validTemplates = ["vite-ts", "vite-js"]
 
 const args = arg({
     '--help': Boolean,
@@ -44,7 +44,7 @@ const currentDir = process.cwd();
 // The first argument will be the project name.
 const projectName = path.join(currentDir, args._[0]);
 
-const templateName = args['--template'] || 'next-ts';
+const templateName = args['--template'] || 'vite-ts';
 
 if (!validTemplates.includes(templateName)) return console.log(`❗❗❗ Template not found: ${templateName}`)
 
