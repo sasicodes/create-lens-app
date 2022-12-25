@@ -1,7 +1,7 @@
 {
   "name": "create-lens-app",
   "version": "0.0.1",
-  "description": "Create Lens protocol apps in one command",
+  "description": "Create Lens protocol apps in one command 🌿",
   "bin": {
     "create-lens-app": "bin/cli.js"
   },
@@ -11,7 +11,15 @@
     "lens-hooks",
     "lens-protocol"
   ],
-  "author": "Sasi <me@sasi.codes>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sasicodes/create-lens-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sasicodes/create-lens-app/issues"
+  },
+  "homepage": "https://github.com/sasicodes/create-lens-app",
+  "author": "Sasi <@sasicodes>",
   "license": "MIT",
   "dependencies": {
     "arg": "^5.0.2",
