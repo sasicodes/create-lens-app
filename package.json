@@ -1,6 +1,6 @@
 {
   "name": "create-lens-app",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Create Lens protocol apps in one command 🌿",
   "bin": {
     "create-lens-app": "bin/cli.js"

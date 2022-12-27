@@ -1,5 +1,6 @@
 # Create Lens Apps in one command ⚡ 🌿
-
+## Scaffold your first Lens Project
+---
 ## Usage
 
 ```bash
