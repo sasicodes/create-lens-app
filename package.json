@@ -3,7 +3,7 @@
   "version": "0.0.4",
   "description": "Create Lens protocol apps in one command 🌿",
   "bin": {
-    "create-lens-app": "bin/cli.js"
+    "create-lens-app": "index.js"
   },
   "keywords": [
     "react",
@@ -21,9 +21,20 @@
   "homepage": "https://github.com/sasicodes/create-lens-app",
   "author": "Sasi <@sasicodes>",
   "license": "MIT",
-  "dependencies": {
+  "scripts": {
+    "build": "npx unbuild",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "index.js",
+    "templates-*",
+    "dist",
+    "bin"
+  ],
+  "devDependencies": {
     "arg": "^5.0.2",
     "chalk": "4.1.2",
-    "inquirer": "^8.0.1"
+    "inquirer": "^8.0.1",
+    "unbuild": "^1.0.2"
   }
 }
