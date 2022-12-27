@@ -29,8 +29,7 @@
   "files": [
     "index.js",
     "templates/*",
-    "dist",
-    "bin"
+    "dist"
   ],
   "devDependencies": {
     "arg": "^5.0.2",
