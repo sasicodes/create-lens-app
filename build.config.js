@@ -1,7 +1,7 @@
 import { defineBuildConfig } from "unbuild";
 
 export default defineBuildConfig({
-  entries: ["bin/cli"],
+  entries: ["src/cli"],
   clean: true,
   rollup: {
     inlineDependencies: true,

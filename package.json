@@ -1,7 +1,8 @@
 {
   "name": "create-lens-app",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "Create Lens protocol apps in one command 🌿",
+  "type": "module",
   "bin": {
     "create-lens-app": "index.js"
   },
@@ -27,14 +28,14 @@
   },
   "files": [
     "index.js",
-    "templates-*",
+    "templates/*",
     "dist",
     "bin"
   ],
   "devDependencies": {
     "arg": "^5.0.2",
-    "chalk": "4.1.2",
-    "inquirer": "^8.0.1",
+    "kolorist": "^1.6.0",
+    "prompts": "^2.4.2",
     "unbuild": "^1.0.2"
   }
 }

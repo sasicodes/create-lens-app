@@ -2,12 +2,13 @@
 
 // Usage: npx create-lens-app <project-name>
 
-const { execSync } = require('child_process');
-const fs = require('fs');
-const path = require('path');
-const arg = require('arg');
-const chalk = require('chalk');
-const inquirer = require('inquirer');
+import { execSync } from 'child_process'
+import path from 'node:path'
+import fs from 'node:fs'
+import arg from 'arg'
+import prompts from 'prompts'
+import { cyan, gray, green, red } from 'kolorist'
+import { fileURLToPath } from 'url';
 
 const validTemplates = ["vite-ts", "vite-js"]
 
@@ -22,21 +23,21 @@ const args = arg({
 
 if (args['--list']) {
     console.log('\n')
-    validTemplates.map(t => console.log(chalk.green(`${t}`)))
+    validTemplates.map(t => console.log(green(`${t}`)))
     console.log('\n')
     process.exit(0)
 }
 
 if (args['--help'] || (!args._[0])) {
-    console.log(chalk`
-    {bold.cyan create-lens-app} - Create Lens App in one command ⚡
+    console.log(`
+    ${cyan('create-lens-app')} - Create Lens App in one command ⚡
 
-    {bold USAGE}
-      {bold $} {cyan create-lens-app} --help
-      {bold $} {cyan create-lens-app} {underline my-app}
-      {bold $} {cyan create-lens-app} {underline my-app} [--template {underline <template-name>}]
+    USAGE
+       $ ${cyan('create-lens-app')} --help
+       $ ${cyan('create-lens-app')} <my-app>
+       $ ${cyan('create-lens-app')} <my-app> [--template <template-name>]
       
-    {bold OPTIONS}
+    OPTIONS
       --help,      -h        shows this help message
       --template,  -t        sets the template
       --list,      -l        lists all template
@@ -53,23 +54,32 @@ const runCommand = command => {
     }
 }
 
+const isValidPackageName = (projectName) => {
+    return /^(?:@[a-z\d\-*~][a-z\d\-*._~]*\/)?[a-z\d\-~][a-z\d\-._~]*$/.test(
+        projectName,
+    )
+}
+
 const currentDir = process.cwd();
 const projectName = path.join(currentDir, args._[0]);
 
-inquirer
-    .prompt([
-        {
-            type: 'list',
-            name: 'template',
-            message: 'Choose a template: ',
-            choices: validTemplates,
-        },
-    ])
+if (!isValidPackageName(args._[0])) {
+    console.log(red('Invalid Project name!'))
+    process.exit(1)
+}
+
+prompts(
+    {
+        type: 'select',
+        name: 'template',
+        message: 'Choose a template:',
+        choices: validTemplates,
+    })
     .then(answers => {
         const templateName = args['--template'] || answers.template || 'vite-js';
 
         if (!validTemplates.includes(templateName)) {
-            console.log(`❗❗❗ Template not found: ${templateName}`)
+            console.log(red(`Template not found: ${templateName}`))
             process.exit(1)
         }
 
@@ -79,7 +89,7 @@ inquirer
         fs.mkdirSync(projectDir, { recursive: true });
 
         console.log(`📦 Using template ${templateName}`);
-        const templateDir = path.resolve(__dirname, `../templates/${templateName}`);
+        const templateDir = path.resolve(fileURLToPath(import.meta.url), '../', `../templates/${templateName}`);
         fs.cpSync(templateDir, projectDir, { recursive: true, force: true });
 
         fs.renameSync(
@@ -87,9 +97,11 @@ inquirer
             path.join(projectDir, '.gitignore')
         );
 
-        const projectPackageJson = require(path.join(projectDir, 'package.json'));
+        const projectPackageJson = JSON.parse(
+            fs.readFileSync(path.join(projectDir, `package.json`), 'utf-8'),
+        )
 
-        projectPackageJson.name = projectName;
+        projectPackageJson.name = args._[0];
 
         fs.writeFileSync(
             path.join(projectDir, 'package.json'),
@@ -100,8 +112,8 @@ inquirer
         const installDepsCommand = `cd ${projectName} && npm install`
         runCommand(installDepsCommand)
 
-        console.log(chalk`\n{bold.green OK BLOOMER} 🌿 Your app is ready!`);
-        console.log(chalk.gray(`\nCreated Lens project at ${projectDir}`));
+        console.log(green`\nOK BLOOMER 🌿 Your app is ready!`);
+        console.log(gray(`\nCreated Lens project at ${projectDir}`));
     })
     .catch((error) => {
         console.log(error)
