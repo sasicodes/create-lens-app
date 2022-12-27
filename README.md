@@ -7,6 +7,7 @@
 $ npx create-lens-app <project-name>
 
 $ npx create-lens-app <project-name> --template <template-name>
+
 ```
 
 ## Help
@@ -17,9 +18,11 @@ $ npx create-lens-app --help
 
 
 ## Templates
-Currently supported template presets include:
 
-- `vite-ts`
-- `vite-js`
+View all available templates,
 
-<https://github.com/sasicodes/create-lens-app/tree/main/templates>
+```bash
+$ npx create-lens-app --list
+```
+
+https://github.com/sasicodes/create-lens-app/tree/main/templates
