@@ -76,7 +76,7 @@ prompts(
         choices: validTemplates,
     })
     .then(answers => {
-        const templateName = args['--template'] || answers.template || 'vite-js';
+        const templateName = args['--template'] || validTemplates[answers.template] || 'vite-js';
 
         if (!validTemplates.includes(templateName)) {
             console.log(red(`Template not found: ${templateName}`))
