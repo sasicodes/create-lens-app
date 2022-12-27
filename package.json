@@ -1,7 +1,7 @@
 {
   "name": "create-lens-app",
-  "version": "0.0.7",
-  "description": "Create Lens protocol apps in one command 🌿",
+  "version": "0.0.8",
+  "description": "Create Lens Protocol apps in one command 🌿",
   "type": "module",
   "bin": {
     "create-lens-app": "index.js"
