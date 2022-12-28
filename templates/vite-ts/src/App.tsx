@@ -26,7 +26,7 @@ function App() {
       <div className="center">
         <img
           className="logo"
-          src="https://i.imgur.com/CjfmRwN.png"
+          src="https://i.ibb.co/MsKXtKj/lens-illus.png"
           alt="Lens"
           width={600}
           height={450}
