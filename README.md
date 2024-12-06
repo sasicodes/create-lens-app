@@ -1,3 +1,7 @@
+> [!CAUTION]
+> Gave the package to the team - https://github.com/lens-protocol/create-lens-app
+
+
 # Create Lens Apps in one command ⚡ 🌿
 ## Scaffold your first Lens Project
 ---
